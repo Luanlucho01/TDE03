@@ -1,4 +1,3 @@
-// Versão com condição de corrida (sem sincronização) 
 import java.util.concurrent.*;
 public class CorridaSemControle {
     static int count = 0;
@@ -7,7 +6,7 @@ public class CorridaSemControle {
         ExecutorService pool = Executors.newFixedThreadPool(T);
         Runnable r = () -> {
             for (int i = 0; i < M; i++) {
-                count++; // atualização não atômica: sujeito a perda de incrementos
+                count++;
             }
         };
         long t0 = System.nanoTime();
